@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+INCLUDES="-I/usr/include/ti/omx/interfaces/openMaxv11 -I/usr/include/ti/omx/comp/vfpc -I/usr/include/ti/omx/comp/vfdc -I/usr/include/ti/omx/comp/ctrl -I/usr/include/ti -I/usr/include/ti/omx/comp/vfcc -I/usr/include/ti/omx/comp/vswmosaic -I/usr/src/linux-3.2.33/include"
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	export OMXCORE_CFLAGS=$(INCLUDES); ./autogen.sh
+
+override_dh_auto_build:
+	export OMXCORE_CFLAGS=$(INCLUDES); make
+
+override_dh_strip:
+	export DEB_BUILD_OPTIONS="nostrip"; dh_strip $@
+
+override_dh_usrlocal:
+	rm -rf debian/gst-plugin-openmax-dm81xx/usr/local

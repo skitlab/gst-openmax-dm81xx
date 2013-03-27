@@ -1,0 +1,5 @@
+gst-plugin-openmax-dm81xx (1.0-1ubuntu1+skt1) precise; urgency=low
+
+  * Initial build, based on repository github.com/Vodalys/gst-openmax-dm81xx
+
+ -- Pavel Nakonechny <pavel.nakonechny@skitlab.ru>  Fri, 22 Mar 2013 10:26:35 +0000
